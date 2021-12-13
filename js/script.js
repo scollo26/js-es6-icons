@@ -154,7 +154,7 @@ select.addEventListener('change', function(){
     if(selectVa == 'All'){
         container.innerHTML ='';
         icons.forEach((element) =>{  
-            element.color = '#' + randomColor;
+            let color = '#' + randomColor;
             const templateDiv =
             `<div class="icon-container">
             <div class="icons"><i class="${element.family} ${element.prefix}${element.name}" style="color: ${element.color}"></i></div>
