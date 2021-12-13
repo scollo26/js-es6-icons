@@ -8,7 +8,7 @@
 
 
 
-box = [
+const icons = [
 	{
 		name: 'cat',
 		prefix: 'fa-',
@@ -126,7 +126,111 @@ box = [
 
 
 const container = document.querySelector('.container');
-console.log(container);
+
+
+
+
+for (let i = 0; i < icons.length; i++) {
+	const element = icons[i];
+	const templateDiv = `
+	<div class="icon-container">
+		<div class="icons"><i class="${element.family} ${element.prefix}${element.name}" style="color: ${element.color}"></i></div>
+		<div class="icon-title">${element.name}</div>
+	</div>`
+	container.innerHTML += templateDiv;
+
+}
+
+
+
+
+const select = document.getElementById('change');
+
+
+select.addEventListener('change', function(){
+    let randomColor = Math.floor(Math.random()*16777215).toString(16);
+    const selectVa = select.value;
+
+    if(selectVa == 'All'){
+        container.innerHTML ='';
+        icons.forEach((element) =>{  
+            element.color = '#' + randomColor;
+            const templateDiv =
+            `<div class="icon-container">
+            <div class="icons"><i class="${element.family} ${element.prefix}${element.name}" style="color: ${element.color}"></i></div>
+            <div class="icon-title">${element.name}</div>
+            </div>`
+            container.innerHTML += templateDiv;
+        });
+
+        
+    }else if(selectVa == 'Animal'){
+        // console.log('ciao');
+        container.innerHTML ='';
+        const animal = icons.filter((element) =>{
+            if (element.color == 'orange'){
+                return element;
+            }
+            
+        });
+        animal.forEach((element) =>{  
+            const templateDiv =
+            `<div class="icon-container">
+            <div class="icons"><i class="${element.family} ${element.prefix}${element.name}" style="color: ${element.color}"></i></div>
+            <div class="icon-title">${element.name}</div>
+            </div>`
+            container.innerHTML += templateDiv;
+
+        });
+    }else if( selectVa == 'Vegetable'){
+        // console.log('ciao');
+        container.innerHTML ='';
+        const animal = icons.filter((element) =>{
+            if (element.color == 'green'){
+                return element;
+            }
+        });
+        animal.forEach((element) =>{
+            const templateDiv =
+            `<div class="icon-container">
+            <div class="icons"><i class="${element.family} ${element.prefix}${element.name}" style="color: ${element.color}"></i></div>
+            <div class="icon-title">${element.name}</div>
+            </div>`
+            container.innerHTML += templateDiv;
+
+        });
+
+    }else if(selectVa == 'User'){
+        // console.log('ciao');
+        container.innerHTML ='';
+        const animal = icons.filter((element) =>{
+            if (element.color == 'blue'){
+                return element;
+            }
+        });
+        animal.forEach((element) =>{
+            const templateDiv =
+            `<div class="icon-container">
+            <div class="icons"><i class="${element.family} ${element.prefix}${element.name}" style="color: ${element.color}"></i></div>
+            <div class="icon-title">${element.name}</div>
+            </div>`
+            container.innerHTML += templateDiv;
+        }); 
+    }
+
+console.log(select);
+
+});
+
+
+
+
+
+// console.log(container);
+// console.log(icons);
+
+
+
 
 
 
