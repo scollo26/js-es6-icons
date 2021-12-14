@@ -148,13 +148,13 @@ const select = document.getElementById('change');
 
 
 select.addEventListener('change', function(){
-    let randomColor = Math.floor(Math.random()*16777215).toString(16);
+    
     const selectVa = select.value;
 
     if(selectVa == 'All'){
         container.innerHTML ='';
         icons.forEach((element) =>{  
-            let color = '#' + randomColor;
+            
             const templateDiv =
             `<div class="icon-container">
             <div class="icons"><i class="${element.family} ${element.prefix}${element.name}" style="color: ${element.color}"></i></div>
@@ -173,10 +173,11 @@ select.addEventListener('change', function(){
             }
             
         });
-        animal.forEach((element) =>{  
+        animal.forEach((element) =>{ 
+			let colorAnimals = Math.floor(Math.random()*16777215).toString(16); 
             const templateDiv =
             `<div class="icon-container">
-            <div class="icons"><i class="${element.family} ${element.prefix}${element.name}" style="color: ${element.color}"></i></div>
+            <div class="icons"><i class="${element.family} ${element.prefix}${element.name}" style="color: #${colorAnimals}"></i></div>
             <div class="icon-title">${element.name}</div>
             </div>`
             container.innerHTML += templateDiv;
@@ -191,9 +192,10 @@ select.addEventListener('change', function(){
             }
         });
         animal.forEach((element) =>{
+			let colorVegetable = Math.floor(Math.random()*16777215).toString(16); 
             const templateDiv =
             `<div class="icon-container">
-            <div class="icons"><i class="${element.family} ${element.prefix}${element.name}" style="color: ${element.color}"></i></div>
+            <div class="icons"><i class="${element.family} ${element.prefix}${element.name}" style="color: #${colorVegetable}"></i></div>
             <div class="icon-title">${element.name}</div>
             </div>`
             container.innerHTML += templateDiv;
@@ -209,9 +211,10 @@ select.addEventListener('change', function(){
             }
         });
         animal.forEach((element) =>{
+			let colorUser = Math.floor(Math.random()*16777215).toString(16); 
             const templateDiv =
             `<div class="icon-container">
-            <div class="icons"><i class="${element.family} ${element.prefix}${element.name}" style="color: ${element.color}"></i></div>
+            <div class="icons"><i class="${element.family} ${element.prefix}${element.name}" style="color: #${colorUser}"></i></div>
             <div class="icon-title">${element.name}</div>
             </div>`
             container.innerHTML += templateDiv;
